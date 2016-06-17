@@ -375,6 +375,7 @@ ifneq (,$(user_variant))
   ADDITIONAL_SYSTEM_PROPERTIES += ro.secure=1
   ADDITIONAL_SYSTEM_PROPERTIES += security.perf_harden=1
   ADDITIONAL_SYSTEM_PROPERTIES += ro.control_privapp_permissions=enforce
+  ADDITIONAL_SYSTEM_PROPERTIES += persist.security.deny_new_usb=dynamic
 
   ifeq ($(user_variant),user)
     ADDITIONAL_SYSTEM_PROPERTIES += ro.adb.secure=1
