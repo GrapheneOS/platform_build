@@ -17,7 +17,7 @@ DEXPREOPT_BOOT_JAR_DIR := system/framework
 DEXPREOPT_BOOT_JAR_DIR_FULL_PATH := $(DEXPREOPT_PRODUCT_DIR_FULL_PATH)/$(DEXPREOPT_BOOT_JAR_DIR)
 
 # The default value for LOCAL_DEX_PREOPT
-DEX_PREOPT_DEFAULT ?= true
+DEX_PREOPT_DEFAULT := true
 
 # The default filter for which files go into the system_other image (if it is
 # being used). To bundle everything one should set this to '%'
@@ -34,15 +34,8 @@ endif
 # The default values for pre-opting: always preopt PIC.
 # Conditional to building on linux, as dex2oat currently does not work on darwin.
 ifeq ($(HOST_OS),linux)
-  WITH_DEXPREOPT ?= true
-  ifeq (eng,$(TARGET_BUILD_VARIANT))
-    # Don't strip for quick development turnarounds.
-    DEX_PREOPT_DEFAULT := nostripping
-    # For an eng build only pre-opt the boot image and system server. This gives reasonable performance
-    # and still allows a simple workflow: building in frameworks/base and syncing.
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-  endif
-  # Add mini-debug-info to the boot classpath unless explicitly asked not to.
+  WITH_DEXPREOPT := true
+  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
   ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
     PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
   endif
