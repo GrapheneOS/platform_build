@@ -94,8 +94,8 @@ endif
 #
 # The thermal cutoff value is currently set to THERMAL_STATUS_MODERATE.
 PRODUCT_SYSTEM_PROPERTIES += \
-    dalvik.vm.usejit=true \
-    dalvik.vm.usejitprofiles=true \
+    dalvik.vm.usejit=false \
+    dalvik.vm.usejitprofiles=false \
     dalvik.vm.dexopt.secondary=true \
     dalvik.vm.dexopt.thermal-cutoff=2 \
     dalvik.vm.appimageformat=lz4
