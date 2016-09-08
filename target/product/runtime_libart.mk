@@ -102,17 +102,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.dalvik.vm.native.bridge?=0
 
-# Different dexopt types for different package update/install times.
-# On eng builds, make "boot" reasons only extract for faster turnaround.
-ifeq (eng,$(TARGET_BUILD_VARIANT))
-    PRODUCT_SYSTEM_PROPERTIES += \
-        pm.dexopt.first-boot?=extract \
-        pm.dexopt.boot-after-ota?=extract
-else
-    PRODUCT_SYSTEM_PROPERTIES += \
-        pm.dexopt.first-boot?=verify \
-        pm.dexopt.boot-after-ota?=verify
-endif
 
 # The install filter is speed-profile in order to enable the use of
 # profiles from the dex metadata files. Note that if a profile is not provided
@@ -121,18 +110,20 @@ endif
 # of compilation reason in the platform (as we have a unified, single path,
 # without exceptions).
 PRODUCT_SYSTEM_PROPERTIES += \
-    pm.dexopt.post-boot?=extract \
-    pm.dexopt.boot-after-mainline-update?=verify \
-    pm.dexopt.install?=speed-profile \
-    pm.dexopt.install-fast?=skip \
-    pm.dexopt.install-bulk?=speed-profile \
-    pm.dexopt.install-bulk-secondary?=verify \
-    pm.dexopt.install-bulk-downgraded?=verify \
-    pm.dexopt.install-bulk-secondary-downgraded?=extract \
-    pm.dexopt.bg-dexopt?=speed-profile \
-    pm.dexopt.ab-ota?=speed-profile \
-    pm.dexopt.inactive?=verify \
-    pm.dexopt.cmdline?=verify \
+    pm.dexopt.first-boot=speed \
+    pm.dexopt.boot-after-ota=speed \
+    pm.dexopt.post-boot?=speed \
+    pm.dexopt.boot-after-mainline-update?=speed \
+    pm.dexopt.install?=speed \
+    pm.dexopt.install-fast?=speed \
+    pm.dexopt.install-bulk?=speed \
+    pm.dexopt.install-bulk-secondary?=speed \
+    pm.dexopt.install-bulk-downgraded?=speed \
+    pm.dexopt.install-bulk-secondary-downgraded?=speed \
+    pm.dexopt.bg-dexopt?=speed \
+    pm.dexopt.ab-ota?=speed \
+    pm.dexopt.inactive?=speed \
+    pm.dexopt.cmdline?=speed \
     pm.dexopt.shared?=speed
 
 # Enable resolution of startup const strings.
