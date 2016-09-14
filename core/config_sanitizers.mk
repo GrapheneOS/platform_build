@@ -447,3 +447,9 @@ ifneq ($(findstring fsanitize,$(my_cflags)),)
     endif
   endif
 endif
+
+ifeq ($(filter signed-integer-overflow integer undefined,$(my_sanitize)),)
+  ifeq ($(filter -ftrapv,$(my_cflags)),)
+    my_cflags += -fwrapv
+  endif
+endif
