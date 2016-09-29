@@ -95,34 +95,24 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.dalvik.vm.native.bridge=0
 
-# Different dexopt types for different package update/install times.
-# On eng builds, make "boot" reasons only extract for faster turnaround.
-ifeq (eng,$(TARGET_BUILD_VARIANT))
-    PRODUCT_SYSTEM_PROPERTIES += \
-        pm.dexopt.first-boot?=extract \
-        pm.dexopt.boot-after-ota?=extract
-else
-    PRODUCT_SYSTEM_PROPERTIES += \
-        pm.dexopt.first-boot?=verify \
-        pm.dexopt.boot-after-ota?=verify
-endif
-
 # Note that `cmdline` is not strictly needed but it simplifies the management
 # of compilation reason in the platform (as we have a unified, single path,
 # without exceptions).
 PRODUCT_SYSTEM_PROPERTIES += \
-    pm.dexopt.post-boot?=extract \
-    pm.dexopt.install?=speed \
-    pm.dexopt.install-fast?=skip \
-    pm.dexopt.install-bulk?=speed \
-    pm.dexopt.install-bulk-secondary?=verify \
-    pm.dexopt.install-bulk-downgraded?=verify \
-    pm.dexopt.install-bulk-secondary-downgraded?=extract \
-    pm.dexopt.bg-dexopt?=speed \
-    pm.dexopt.ab-ota?=speed \
-    pm.dexopt.inactive?=verify \
-    pm.dexopt.cmdline?=verify \
-    pm.dexopt.shared?=speed
+    pm.dexopt.first-boot=speed \
+    pm.dexopt.boot-after-ota=speed \
+    pm.dexopt.post-boot=speed \
+    pm.dexopt.install=speed \
+    pm.dexopt.install-fast=speed \
+    pm.dexopt.install-bulk=speed \
+    pm.dexopt.install-bulk-secondary=speed \
+    pm.dexopt.install-bulk-downgraded=speed \
+    pm.dexopt.install-bulk-secondary-downgraded=speed \
+    pm.dexopt.bg-dexopt=speed \
+    pm.dexopt.ab-ota=speed \
+    pm.dexopt.inactive=speed \
+    pm.dexopt.cmdline=speed \
+    pm.dexopt.shared=speed
 
 # Pass file with the list of updatable boot class path packages to dex2oat.
 PRODUCT_SYSTEM_PROPERTIES += \
