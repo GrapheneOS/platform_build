@@ -259,8 +259,8 @@ endif
 
 my_default_compiler_filter := $(PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER)
 ifeq (,$(my_default_compiler_filter))
-# If no default compiler filter is specified, default to 'quicken' to save on storage.
-my_default_compiler_filter := quicken
+# If no default compiler filter is specified, default to 'speed'.
+my_default_compiler_filter := speed
 endif
 
 ifeq (,$(filter --compiler-filter=%, $(LOCAL_DEX_PREOPT_FLAGS)))
