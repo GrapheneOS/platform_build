@@ -60,6 +60,7 @@ PRODUCT_PACKAGES += \
     Telecom \
     TeleService \
     Traceur \
+    Vanadium \
     VpnDialogs \
     vr \
     MmsService
