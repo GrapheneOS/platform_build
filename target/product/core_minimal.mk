@@ -86,9 +86,9 @@ PRODUCT_PACKAGES += \
     telephony-common \
     uiautomator \
     uncrypt \
+    Vanadium \
     vndk_snapshot_package \
     voip-common \
-    webview \
     webview_zygote \
 
 # Wifi modules
