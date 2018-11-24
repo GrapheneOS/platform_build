@@ -30,6 +30,7 @@ PRODUCT_PACKAGES += \
     CalendarProvider \
     CaptivePortalLogin \
     CertInstaller \
+    Chromium \
     Contacts \
     DeskClock \
     DocumentsUI \
