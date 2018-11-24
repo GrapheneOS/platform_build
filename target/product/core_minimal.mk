@@ -88,7 +88,6 @@ PRODUCT_PACKAGES += \
     uncrypt \
     vndk_snapshot_package \
     voip-common \
-    webview \
     webview_zygote \
 
 # Wifi modules
