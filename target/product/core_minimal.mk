@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     vndk_snapshot_package \
     voip-common \
     webview_zygote \
+    Updater
 
 # Wifi modules
 PRODUCT_PACKAGES += \
