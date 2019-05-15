@@ -312,8 +312,6 @@ else # !enable_target_debugging
   ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=0
 endif # !enable_target_debugging
 
-ADDITIONAL_DEFAULT_PROPERTIES += sys.spawn.exec=1
-
 ## eng ##
 
 ifeq ($(TARGET_BUILD_VARIANT),eng)
