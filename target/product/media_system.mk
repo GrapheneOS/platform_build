@@ -38,6 +38,10 @@ PRODUCT_PACKAGES += \
     StatementService \
     vndk_snapshot_package \
 
+ifeq ($(OFFICIAL_BUILD),true)
+    PRODUCT_PACKAGES += Updater
+endif
+
 PRODUCT_HOST_PACKAGES += \
     fsck.f2fs \
 
