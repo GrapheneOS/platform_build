@@ -19,3 +19,7 @@
 # if it definitely doesn't belong on wearables. Otherwise, choose
 # base_vendor.mk.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base_product.mk)
+
+# /product packages
+PRODUCT_PACKAGES += \
+    webview \
