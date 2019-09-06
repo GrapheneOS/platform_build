@@ -18,7 +18,9 @@ else ifeq (true,$(DISABLE_PREOPT))
 endif
 
 # The default value for LOCAL_DEX_PREOPT
-DEX_PREOPT_DEFAULT ?= $(ENABLE_PREOPT)
+DEX_PREOPT_DEFAULT := true
+
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
 
 # Whether to fail immediately if verify_uses_libraries check fails, or to keep
 # going and restrict dexpreopt to not compile any code for the failed module.
@@ -50,25 +52,17 @@ SYSTEM_OTHER_ODEX_FILTER ?= \
 # Global switch to control if updatable boot jars are included in dexpreopt.
 DEX_PREOPT_WITH_UPDATABLE_BCP := true
 
-# Conditional to building on linux, as dex2oat currently does not work on darwin.
-ifeq ($(HOST_OS),linux)
-  ifeq (eng,$(TARGET_BUILD_VARIANT))
-    # For an eng build only pre-opt the boot image and system server. This gives reasonable performance
-    # and still allows a simple workflow: building in frameworks/base and syncing.
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-  endif
-  # Add mini-debug-info to the boot classpath unless explicitly asked not to.
-  ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
-    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
-  endif
+# Add mini-debug-info to the boot classpath unless explicitly asked not to.
+ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
+  PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+endif
 
-  # Non eng linux builds must have preopt enabled so that system server doesn't run as interpreter
-  # only. b/74209329
-  ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-    ifneq (true,$(WITH_DEXPREOPT))
-      ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
-        $(call pretty-error, DEXPREOPT must be enabled for user and userdebug builds)
-      endif
+# Non eng builds must have preopt enabled so that system server doesn't run as interpreter
+# only. b/74209329
+ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+  ifneq (true,$(WITH_DEXPREOPT))
+    ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
+      $(call pretty-error, DEXPREOPT must be enabled for user and userdebug builds)
     endif
   endif
 endif
