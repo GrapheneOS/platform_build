@@ -32,6 +32,7 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Music \
     OneTimeInitializer \
+    PdfViewer \
     preinstalled-packages-platform-handheld-product.xml \
     QuickSearchBox \
     SettingsIntelligence \
