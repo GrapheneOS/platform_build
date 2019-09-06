@@ -126,23 +126,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.cmdline?=verify \
     pm.dexopt.shared?=speed
 
-ifneq (,$(filter eng,$(TARGET_BUILD_VARIANT)))
-    OVERRIDE_DISABLE_DEXOPT_ALL ?= true
-endif
-
-# OVERRIDE_DISABLE_DEXOPT_ALL disables all dexpreopt (build-time) and dexopt (on-device) activities.
-# This option is for faster iteration during development and should never be enabled for production.
-ifneq (,$(filter true,$(OVERRIDE_DISABLE_DEXOPT_ALL)))
-  PRODUCT_SYSTEM_PROPERTIES += \
-    dalvik.vm.disable-art-service-dexopt=true \
-    dalvik.vm.disable-odrefresh=true
-
-  # Disable all dexpreopt activities except for the ART boot image.
-  # We have to dexpreopt the ART boot image because they are used by ART tests. This should not
-  # be too much of a problem for platform developers because a change to framework code should not
-  # trigger dexpreopt for the ART boot image.
-  WITH_DEXPREOPT_ART_BOOT_IMG_ONLY := true
-endif
+WITH_DEXPREOPT_ART_BOOT_IMG_ONLY := false
 
 # Enable resolution of startup const strings.
 PRODUCT_SYSTEM_PROPERTIES += \
