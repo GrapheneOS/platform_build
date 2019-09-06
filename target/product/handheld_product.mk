@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
     Contacts \
     DeskClock \
     Email \
+    ExactCalculator \
     Gallery2 \
     LatinIME \
     Launcher3QuickStep \
