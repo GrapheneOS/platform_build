@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
     requestsync \
     StatementService \
 
+ifeq ($(OFFICIAL_BUILD),true)
+    PRODUCT_PACKAGES += Updater
+endif
+
 PRODUCT_HOST_PACKAGES += \
     fsck.f2fs \
 
