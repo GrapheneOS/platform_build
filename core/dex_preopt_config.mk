@@ -1,7 +1,7 @@
 DEX_PREOPT_CONFIG := $(PRODUCT_OUT)/dexpreopt.config
 
 # The default value for LOCAL_DEX_PREOPT
-DEX_PREOPT_DEFAULT ?= true
+DEX_PREOPT_DEFAULT := true
 
 # The default filter for which files go into the system_other image (if it is
 # being used). To bundle everything one should set this to '%'
@@ -20,13 +20,6 @@ ifeq ($(PRODUCT_DEX_PREOPT_NEVER_ALLOW_STRIPPING),)
 endif
 # Conditional to building on linux, as dex2oat currently does not work on darwin.
 ifeq ($(HOST_OS),linux)
-  ifeq (eng,$(TARGET_BUILD_VARIANT))
-    # Don't strip for quick development turnarounds.
-    DEX_PREOPT_DEFAULT := nostripping
-    # For an eng build only pre-opt the boot image and system server. This gives reasonable performance
-    # and still allows a simple workflow: building in frameworks/base and syncing.
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-  endif
   # Add mini-debug-info to the boot classpath unless explicitly asked not to.
   ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
     PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
