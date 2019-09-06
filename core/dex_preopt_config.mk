@@ -24,7 +24,7 @@ else
 endif
 
 # The default value for LOCAL_DEX_PREOPT
-DEX_PREOPT_DEFAULT ?= $(ENABLE_PREOPT)
+DEX_PREOPT_DEFAULT := true
 
 # Whether to fail immediately if verify_uses_libraries check fails, or to keep
 # going and restrict dexpreopt to not compile any code for the failed module.
@@ -56,12 +56,9 @@ SYSTEM_OTHER_ODEX_FILTER ?= \
 # Global switch to control if updatable boot jars are included in dexpreopt.
 DEX_PREOPT_WITH_UPDATABLE_BCP := true
 
-# Conditional to building on linux, as dex2oat currently does not work on darwin.
-ifeq ($(HOST_OS),linux)
-  # Add mini-debug-info to the boot classpath unless explicitly asked not to.
-  ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
-    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
-  endif
+# Add mini-debug-info to the boot classpath unless explicitly asked not to.
+ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
+  PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
 endif
 
 # Get value of a property. It is first searched from PRODUCT_VENDOR_PROPERTIES
