@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
     make_f2fs \
     requestsync \
     StatementService \
+    Vanadium \
     vndk_snapshot_package \
 
 PRODUCT_HOST_PACKAGES += \
