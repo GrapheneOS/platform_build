@@ -37,6 +37,7 @@ PRODUCT_PACKAGES += \
     requestsync \
     StatementService \
     vndk_snapshot_package \
+    Updater
 
 PRODUCT_HOST_PACKAGES += \
     fsck.f2fs \
