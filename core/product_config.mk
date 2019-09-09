@@ -384,6 +384,8 @@ ifeq ($(PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS),)
   endif
 endif
 
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
+
 define product-overrides-config
 $$(foreach rule,$$(PRODUCT_$(1)_OVERRIDES),\
     $$(if $$(filter 2,$$(words $$(subst :,$$(space),$$(rule)))),,\
