@@ -52,6 +52,7 @@ _board_strip_readonly_list := \
   TARGET_NO_RADIOIMAGE \
   TARGET_HARDWARE_3D \
   WITH_DEXPREOPT \
+  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY \
 
 # File system variables
 _board_strip_readonly_list += \
@@ -106,6 +107,7 @@ _board_strip_readonly_list += $(_build_broken_var_list) \
 # Conditional to building on linux, as dex2oat currently does not work on darwin.
 ifeq ($(HOST_OS),linux)
   WITH_DEXPREOPT := true
+  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
 endif
 
 # ###############################################################
