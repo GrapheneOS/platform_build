@@ -27,7 +27,6 @@ PRODUCT_PACKAGES += \
     Camera2 \
     Contacts \
     DeskClock \
-    Email \
     ExactCalculator \
     Gallery2 \
     LatinIME \
