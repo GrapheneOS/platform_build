@@ -37,7 +37,6 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
   system/app/DeskClock/DeskClock.apk \
   system/app/DeskClock/oat/arm64/DeskClock.odex \
   system/app/DeskClock/oat/arm64/DeskClock.vdex \
-  system/app/Email/Email.apk \
   system/app/Gallery2/Gallery2.apk \
   system/app/LatinIME/LatinIME.apk \
   system/app/LatinIME/oat/arm64/LatinIME.odex \
