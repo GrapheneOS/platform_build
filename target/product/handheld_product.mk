@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
     PdfViewer \
     Provision \
     QuickSearchBox \
+    Seedvault \
     Settings \
     SettingsIntelligence \
     StorageManager \
