@@ -42,6 +42,7 @@ PRODUCT_PACKAGES += \
     SystemUI \
     TrichromeChrome \
     WallpaperCropper \
+	Seedvault \
     frameworks-base-overlays
 
 PRODUCT_PACKAGES_DEBUG += \
