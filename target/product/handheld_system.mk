@@ -62,6 +62,7 @@ PRODUCT_PACKAGES += \
     PrintSpooler \
     ProxyHandler \
     screenrecord \
+    SetupWizard \
     SecureElement \
     SharedStorageBackup \
     SimAppDialog \
