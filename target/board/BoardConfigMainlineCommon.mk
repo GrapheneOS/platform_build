@@ -27,10 +27,6 @@ BOARD_VNDK_VERSION ?= current
 # 64 bit mediadrmserver
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Puts odex files on system_other, as well as causing dex files not to get
-# stripped from APKs.
-BOARD_USES_SYSTEM_OTHER_ODEX := true
-
 # Audio: must using XML format for Treblized devices
 USE_XML_AUDIO_POLICY_CONF := 1
 
