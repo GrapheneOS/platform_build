@@ -46,7 +46,7 @@ $(KATI_obsolete_var BUILD_NUMBER,See https://android.googlesource.com/platform/b
 $(BUILD_NUMBER_FILE):
 	touch $@
 
-DATE_FROM_FILE := date -d @$(BUILD_DATETIME_FROM_FILE)
+DATE_FROM_FILE := date -ud @$(BUILD_DATETIME_FROM_FILE)
 .KATI_READONLY := DATE_FROM_FILE
 
 # Pick a reasonable string to use to identify files.
