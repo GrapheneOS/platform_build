@@ -292,7 +292,7 @@ endif
 ifneq (,$(findstring Darwin,$(UNAME)))
 DATE := date -r $(BUILD_DATETIME)
 else
-DATE := date -d @$(BUILD_DATETIME)
+DATE := date -ud @$(BUILD_DATETIME)
 endif
 .KATI_READONLY := DATE
 
