@@ -72,7 +72,7 @@ $(KATI_obsolete_var BUILD_NUMBER,See https://android.googlesource.com/platform/b
 ifeq ($(HOST_OS),darwin)
 DATE_FROM_FILE := date -r $(BUILD_DATETIME_FROM_FILE)
 else
-DATE_FROM_FILE := date -d @$(BUILD_DATETIME_FROM_FILE)
+DATE_FROM_FILE := date -ud @$(BUILD_DATETIME_FROM_FILE)
 endif
 .KATI_READONLY := DATE_FROM_FILE
 
