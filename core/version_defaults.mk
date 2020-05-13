@@ -275,7 +275,7 @@ ifndef BUILD_DATETIME
   BUILD_DATETIME := $(shell date +%s)
 endif
 
-DATE := date -d @$(BUILD_DATETIME)
+DATE := date -ud @$(BUILD_DATETIME)
 .KATI_READONLY := DATE
 
 # Everything should be using BUILD_DATETIME_FROM_FILE instead.
