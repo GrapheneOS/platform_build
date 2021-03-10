@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
     SecureElement \
     SharedStorageBackup \
     SimAppDialog \
+    talkback \
     Telecom \
     TelephonyProvider \
     TeleService \
