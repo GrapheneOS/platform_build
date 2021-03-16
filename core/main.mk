@@ -267,6 +267,7 @@ ifneq (,$(user_variant))
   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
   ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
   ADDITIONAL_DEFAULT_PROPERTIES += persist.security.deny_new_usb=dynamic
+  ADDITIONAL_DEFAULT_PROPERTIES += net.tethering.noprovisioning=true
 
   ifeq ($(user_variant),user)
     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
