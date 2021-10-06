@@ -16,3 +16,6 @@ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 # vendor_dlkm and odm_dlkm.
 BOARD_AVB_VENDOR_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+
+# temporary hack for APV
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
