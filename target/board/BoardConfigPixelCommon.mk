@@ -19,3 +19,6 @@ BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
 
 # temporary hack for APV
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+# Pixel devices ship with OEM APNs, so do not bundle the sample AOSP APNs
+OEM_APNS := true
