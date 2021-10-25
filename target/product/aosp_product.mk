@@ -26,6 +26,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.ringtone?=Ring_Synth_04.ogg \
     ro.config.notification_sound?=pixiedust.ogg \
     ro.com.android.dataroaming?=true \
+    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
 
 # More AOSP packages
 PRODUCT_PACKAGES += \
