@@ -25,7 +25,7 @@ PRODUCT_PACKAGES += \
     Auditor \
     Browser2 \
     Calendar \
-    Camera2 \
+    Camera \
     Contacts \
     DeskClock \
     ExactCalculator \
