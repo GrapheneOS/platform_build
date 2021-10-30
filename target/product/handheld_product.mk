@@ -24,7 +24,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
 PRODUCT_PACKAGES += \
     Auditor \
     Calendar \
-    Camera \
+    Camera2 \
     Contacts \
     DeskClock \
     ExactCalculator \
