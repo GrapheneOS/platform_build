@@ -34,6 +34,7 @@ PRODUCT_PACKAGES += \
     OneTimeInitializer \
     PdfViewer \
     preinstalled-packages-platform-handheld-product.xml \
+    QuickAccessWallet \
     QuickSearchBox \
     SettingsIntelligence \
     TrichromeChrome \
