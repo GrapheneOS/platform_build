@@ -22,6 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
 
 # /product packages
 PRODUCT_PACKAGES += \
+    Apps \
     Auditor \
     Calendar \
     Camera \
