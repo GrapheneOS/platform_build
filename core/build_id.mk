@@ -18,4 +18,8 @@
 # (like "CRB01").  It must be a single word, and is
 # capitalized by convention.
 
-BUILD_ID=SP2A.220405.004
+ifneq (,$(filter barbet redfin bramble sunfish coral flame bonito sargo,$(TARGET_PRODUCT)))
+    BUILD_ID=SP2A.220405.003
+else
+    BUILD_ID=SP2A.220405.004
+endif
