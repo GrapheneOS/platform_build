@@ -353,6 +353,9 @@ ifeq ($(AB_OTA_UPDATER),true)
 ADDITIONAL_PRODUCT_PROPERTIES += ro.product.ab_ota_partitions=$(subst $(space),$(comma),$(AB_OTA_PARTITIONS))
 endif
 
+# Workaround for broken fingerprint unlock animation
+ADDITIONAL_SYSTEM_PROPERTIES += persist.wm.enable_remote_keyguard_animation=0
+
 # -----------------------------------------------------------------
 ###
 ### In this section we set up the things that are different
