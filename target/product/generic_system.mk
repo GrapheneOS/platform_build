@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
 $(call inherit-product-if-exists, vendor/google/security/adb/vendor_key.mk)
 
 # Enable updating of APEXes on 6th generation Pixel devices only
-ifneq (,$(filter oriole raven, $(TARGET_PRODUCT)))
+ifneq (,$(filter oriole raven bluejay, $(TARGET_PRODUCT)))
     $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 endif
 
