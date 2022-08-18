@@ -1137,6 +1137,8 @@ def BuildKeyMap(misc_info, key_mapping_options):
           devkeydir + "/shared":   d + "/shared",
           devkeydir + "/platform": d + "/platform",
           devkeydir + "/networkstack": d + "/networkstack",
+          devkeydir + "/bluetooth": d + "/bluetooth",
+          devkeydir + "/sdk_sandbox": d + "/sdk_sandbox",
       })
     else:
       OPTIONS.key_map[s] = d
