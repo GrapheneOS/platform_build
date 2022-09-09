@@ -546,7 +546,7 @@ function chooseproduct()
     if [ "x$TARGET_PRODUCT" != x ] ; then
         default_value=$TARGET_PRODUCT
     else
-        default_value=aosp_arm
+        default_value=aosp_arm64
     fi
 
     export TARGET_BUILD_APPS=
@@ -708,7 +708,7 @@ function lunch()
         answer=$1
     else
         print_lunch_menu
-        echo "Which would you like? [aosp_arm-eng]"
+        echo "Which would you like? [aosp_arm64-eng]"
         echo -n "Pick from common choices above (e.g. 13) or specify your own (e.g. aosp_barbet-eng): "
         read answer
         used_lunch_menu=1
@@ -718,7 +718,7 @@ function lunch()
 
     if [ -z "$answer" ]
     then
-        selection=aosp_arm-eng
+        selection=aosp_arm64-eng
     elif (echo -n $answer | grep -q -e "^[0-9][0-9]*$")
     then
         local choices=($(TARGET_BUILD_APPS= get_build_var COMMON_LUNCH_CHOICES))
@@ -843,7 +843,7 @@ function tapas()
         return
     fi
 
-    local product=aosp_arm
+    local product=aosp_arm64
     case $arch in
       x86)    product=aosp_x86;;
       arm64)  product=aosp_arm64;;
