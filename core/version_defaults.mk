@@ -103,7 +103,11 @@ ifndef PLATFORM_SECURITY_PATCH
     #  It must be of the form "YYYY-MM-DD" on production devices.
     #  It must match one of the Android Security Patch Level strings of the Public Security Bulletins.
     #  If there is no $PLATFORM_SECURITY_PATCH set, keep it empty.
-    PLATFORM_SECURITY_PATCH := 2023-07-05
+    ifneq (,$(filter coral flame,$(TARGET_PRODUCT)))
+        PLATFORM_SECURITY_PATCH := 2022-11-01
+    else
+        PLATFORM_SECURITY_PATCH := 2023-07-05
+    endif
 endif
 
 include $(BUILD_SYSTEM)/version_util.mk
