@@ -25,7 +25,6 @@ $(call declare-0p-target,$(target_notice_file_xml_gz))
 $(call declare-0p-target,$(installed_notice_html_or_xml_gz))
 endif
 
-ifeq (,$(filter bluejay raven oriole barbet redfin bramble sunfish coral flame,$(TARGET_PRODUCT)))
 .PHONY: vendorlicense
 vendorlicense: $(call corresponding-license-metadata, $(VENDOR_NOTICE_DEPS)) reportmissinglicenses
 
@@ -46,7 +45,6 @@ $(installed_vendor_notice_xml_gz): $(target_vendor_notice_file_xml_gz)
 
 $(call declare-0p-target,$(target_vendor_notice_file_xml_gz))
 $(call declare-0p-target,$(installed_vendor_notice_xml_gz))
-endif
 endif
 
 .PHONY: odmlicense
@@ -71,7 +69,6 @@ endif
 .PHONY: oemlicense
 oemlicense: $(call corresponding-license-metadata, $(OEM_NOTICE_DEPS)) reportmissinglicenses
 
-ifeq (,$(filter bluejay raven oriole barbet redfin bramble sunfish coral flame,$(TARGET_PRODUCT)))
 .PHONY: productlicense
 productlicense: $(call corresponding-license-metadata, $(PRODUCT_NOTICE_DEPS)) reportmissinglicenses
 
@@ -90,9 +87,7 @@ $(installed_product_notice_xml_gz): $(target_product_notice_file_xml_gz)
 $(call declare-0p-target,$(target_product_notice_file_xml_gz))
 $(call declare-0p-target,$(installed_product_notice_xml_gz))
 endif
-endif
 
-ifeq (,$(filter bluejay raven oriole barbet redfin bramble sunfish coral flame,$(TARGET_PRODUCT)))
 .PHONY: systemextlicense
 systemextlicense: $(call corresponding-license-metadata, $(SYSTEM_EXT_NOTICE_DEPS)) reportmissinglicenses
 
@@ -110,7 +105,6 @@ $(installed_system_ext_notice_xml_gz): $(target_system_ext_notice_file_xml_gz)
 
 $(call declare-0p-target,$(target_system_ext_notice_file_xml_gz))
 $(call declare-0p-target,$(installed_system_ext_notice_xml_gz))
-endif
 endif
 
 .PHONY: vendor_dlkmlicense
