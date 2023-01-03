@@ -20,6 +20,10 @@
 
 ifneq (,$(filter coral flame,$(TARGET_PRODUCT)))
     BUILD_ID=TP1A.221005.002
+else ifneq (,$(filter barbet redfin bramble sunfish,$(TARGET_PRODUCT)))
+    BUILD_ID=TQ1A.230105.001
+else ifneq (,$(filter panther bluejay,$(TARGET_PRODUCT)))
+    BUILD_ID=TQ1A.230105.001.A2
 else
     BUILD_ID=TQ1A.230105.002
 endif
