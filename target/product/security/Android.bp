@@ -25,3 +25,10 @@ prebuilt_etc {
     sub_dir: "security/fsverity",
     filename_from_src: true,
 }
+
+prebuilt_etc {
+    name: "fsverity-test-cert-der",
+    src: "fsverity-test.x509.der",
+    sub_dir: "security/fsverity",
+    filename_from_src: true,
+}
