@@ -105,6 +105,8 @@ ifndef PLATFORM_SECURITY_PATCH
     #  If there is no $PLATFORM_SECURITY_PATCH set, keep it empty.
     ifneq (,$(filter coral flame,$(TARGET_PRODUCT)))
         PLATFORM_SECURITY_PATCH := 2022-11-01
+    else ifneq (,$(filter oriole raven bluejay,$(TARGET_PRODUCT)))
+        PLATFORM_SECURITY_PATCH := 2023-03-01
     else
         PLATFORM_SECURITY_PATCH := 2023-03-05
     endif
