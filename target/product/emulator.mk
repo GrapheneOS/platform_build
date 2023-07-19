@@ -20,7 +20,7 @@
 
 # Device modules
 PRODUCT_PACKAGES += \
-    CarrierConfig \
+    CarrierConfig2 \
 
 # need this for gles libraries to load properly
 # after moving to /vendor/lib/
