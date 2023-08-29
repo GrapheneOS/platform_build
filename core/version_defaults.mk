@@ -99,6 +99,12 @@ PLATFORM_VERSION_KNOWN_CODENAMES := \
 .KATI_READONLY := PLATFORM_VERSION_KNOWN_CODENAMES
 
 ifndef PLATFORM_SECURITY_PATCH
+    ifneq ($(PLATFORM_SECURITY_PATCH_$(TARGET_PRODUCT)),)
+        PLATFORM_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH_$(TARGET_PRODUCT))
+    endif
+endif
+
+ifndef PLATFORM_SECURITY_PATCH
     #  Used to indicate the security patch that has been applied to the device.
     #  It must signify that the build includes all security patches issued up through the designated Android Public Security Bulletin.
     #  It must be of the form "YYYY-MM-DD" on production devices.
