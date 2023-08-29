@@ -696,8 +696,47 @@ function choosevariant()
     done
 }
 
+
+function maybe_source_extra_commands() {
+    local PRODUCT=$1
+    local SCRIPT_NAME="cmds-for-envsetup.sh"
+
+    [[ $PRODUCT = sdk_* || $PRODUCT = aosp_* ]] && {
+        # skip for products that are known to not have this extra script
+        return
+    }
+
+    local EXTRA_CMDS_ARR=(vendor/*/"$PRODUCT"/"$SCRIPT_NAME")
+
+    [[ ${#EXTRA_CMDS_ARR[@]} == 1 ]] || {
+        echo "More than one $SCRIPT_NAME file for $PRODUCT: ${EXTRA_CMDS_ARR[*]}"
+        read -s
+        exit 1
+    }
+
+    local EXTRA_CMDS
+    if [ -n "$ZSH_VERSION" ]; then
+        EXTRA_CMDS=${EXTRA_CMDS_ARR[1]}
+    else
+        EXTRA_CMDS=${EXTRA_CMDS_ARR[0]}
+    fi
+
+    [[ $EXTRA_CMDS == "vendor/*/$PRODUCT/$SCRIPT_NAME" ]] && {
+        # wildcard didn't expand, which means that SCRIPT_NAME is missing
+        return
+    }
+
+    echo "============================================"
+    echo "Commands from $EXTRA_CMDS:"
+    cat $EXTRA_CMDS
+    source $EXTRA_CMDS
+    echo "============================================"
+}
+
 function choosecombo()
 {
+    maybe_source_extra_commands $2 $3
+
     choosetype $1
 
     echo
@@ -817,6 +856,8 @@ function lunch()
         echo "Valid combos must be of the form <product>-<release>-<variant>"
         return 1
     fi
+
+    maybe_source_extra_commands $product $variant
 
     TARGET_PRODUCT=$product \
     TARGET_BUILD_VARIANT=$variant \
