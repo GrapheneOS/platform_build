@@ -1,3 +1,8 @@
+ifneq ($(ALLOW_BUILD_ID_MK_INCLUSION), 1)
+    # do not allow including this file from unexpected places, since that would break per-product
+    # BUILD_ID. See core/version_util.mk
+    $(error ALLOW_BUILD_ID_MK_INCLUSION is not set)
+endif
 #
 # Copyright (C) 2008 The Android Open Source Project
 #
