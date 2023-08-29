@@ -35,9 +35,15 @@
 # the build.prop target also wants INTERNAL_BUILD_ID_MAKEFILE to be set
 # if the file exists.
 #
-INTERNAL_BUILD_ID_MAKEFILE := $(wildcard $(BUILD_SYSTEM)/build_id.mk)
-ifdef INTERNAL_BUILD_ID_MAKEFILE
-  include $(INTERNAL_BUILD_ID_MAKEFILE)
+BUILD_ID := $(BUILD_ID_$(TARGET_PRODUCT))
+
+ifeq ($(BUILD_ID),)
+  INTERNAL_BUILD_ID_MAKEFILE := $(wildcard $(BUILD_SYSTEM)/build_id.mk)
+  ifdef INTERNAL_BUILD_ID_MAKEFILE
+    ALLOW_BUILD_ID_MK_INCLUSION := 1
+    include $(INTERNAL_BUILD_ID_MAKEFILE)
+    ALLOW_BUILD_ID_MK_INCLUSION := 0
+  endif
 endif
 
 DEFAULT_PLATFORM_VERSION := UP1A
