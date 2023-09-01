@@ -717,7 +717,12 @@ function maybe_source_extra_commands() {
         exit 1
     }
 
-    local EXTRA_CMDS=${EXTRA_CMDS_ARR[1]}
+    local EXTRA_CMDS
+    if [ -n "$ZSH_VERSION" ]; then
+        EXTRA_CMDS=${EXTRA_CMDS_ARR[1]}
+    else
+        EXTRA_CMDS=${EXTRA_CMDS_ARR[0]}
+    fi
 
     echo "============================================"
     echo "Commands from $EXTRA_CMDS:"
