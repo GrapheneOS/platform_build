@@ -37,6 +37,8 @@ PRODUCT_PACKAGES += \
     preinstalled-packages-platform-handheld-product.xml \
     QuickSearchBox \
     SettingsIntelligence \
+    ThemePicker \
+    ThemesStub \
     TrichromeChrome \
     frameworks-base-overlays
 
