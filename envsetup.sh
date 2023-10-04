@@ -712,10 +712,6 @@ function maybe_source_extra_commands() {
 
     local EXTRA_CMDS_ARR=(vendor/*/"$PRODUCT"/"$SCRIPT_NAME")
 
-    [[ ${#EXTRA_CMDS_ARR[@]} == 0 ]] && {
-        return
-    }
-
     [[ ${#EXTRA_CMDS_ARR[@]} == 1 ]] || {
         echo "More than one $SCRIPT_NAME file for $PRODUCT: ${EXTRA_CMDS_ARR[*]}"
         read -s
@@ -728,6 +724,11 @@ function maybe_source_extra_commands() {
     else
         EXTRA_CMDS=${EXTRA_CMDS_ARR[0]}
     fi
+
+    [[ $EXTRA_CMDS == "vendor/*/$PRODUCT/$SCRIPT_NAME" ]] && {
+        # wildcard didn't expand, which means that SCRIPT_NAME is missing
+        return
+    }
 
     echo "============================================"
     echo "Commands from $EXTRA_CMDS:"
