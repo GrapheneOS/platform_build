@@ -111,7 +111,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # without exceptions).
 PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.first-boot=speed \
-    pm.dexopt.boot-after-ota=speed \
+    pm.dexopt.boot-after-ota=speed-profile \
     pm.dexopt.post-boot?=speed \
     pm.dexopt.boot-after-mainline-update?=speed \
     pm.dexopt.install?=speed \
