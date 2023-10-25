@@ -66,6 +66,8 @@ $(call add_json_str,  DeviceArchVariant,                 $(TARGET_ARCH_VARIANT))
 $(call add_json_str,  DeviceCpuVariant,                  $(TARGET_CPU_VARIANT))
 $(call add_json_list, DeviceAbi,                         $(TARGET_CPU_ABI) $(TARGET_CPU_ABI2))
 
+$(call add_json_bool, Device_has_arm_mte,                $(TARGET_HAS_ARM_MTE))
+
 $(call add_json_str,  DeviceSecondaryArch,               $(TARGET_2ND_ARCH))
 $(call add_json_str,  DeviceSecondaryArchVariant,        $(TARGET_2ND_ARCH_VARIANT))
 $(call add_json_str,  DeviceSecondaryCpuVariant,         $(TARGET_2ND_CPU_VARIANT))
