@@ -83,7 +83,7 @@ CORRECT_BUILD_ENV_SEQUENCE_NUMBER := 13
 # ---------------------------------------------------------------
 # The product defaults to generic on hardware
 ifeq ($(TARGET_PRODUCT),)
-TARGET_PRODUCT := aosp_arm
+TARGET_PRODUCT := sdk_phone_x86_64
 endif
 
 
