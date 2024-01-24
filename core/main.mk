@@ -394,6 +394,9 @@ ifneq (,$(user_variant))
   ADDITIONAL_SYSTEM_PROPERTIES += ro.control_privapp_permissions=enforce
   ADDITIONAL_SYSTEM_PROPERTIES += persist.security.deny_new_usb=dynamic
   ADDITIONAL_SYSTEM_PROPERTIES += net.tethering.noprovisioning=true
+  # System clock update will be skipped if the difference is below this value,
+  # default is 2000 ms as of Android 14.
+  ADDITIONAL_SYSTEM_PROPERTIES += ro.sys.time_detector_update_diff=50
 
   ifeq ($(user_variant),user)
     ADDITIONAL_SYSTEM_PROPERTIES += ro.adb.secure=1
