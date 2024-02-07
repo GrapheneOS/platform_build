@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     OneTimeInitializer \
     PdfViewer \
     preinstalled-packages-platform-handheld-product.xml \
-    QuickSearchBox \
     SettingsIntelligence \
     ThemePicker \
     ThemesStub \
