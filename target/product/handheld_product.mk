@@ -34,7 +34,6 @@ PRODUCT_PACKAGES += \
     Music \
     PdfViewer \
     preinstalled-packages-platform-handheld-product.xml \
-    QuickSearchBox \
     SettingsIntelligence \
     ThemePicker \
     ThemesStub \
