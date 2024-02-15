@@ -5602,8 +5602,7 @@ INTERNAL_OTATOOLS_PACKAGE_FILES += \
   script/decrypt_keys.sh \
   script/encrypt_keys.sh \
   script/generate_metadata.py \
-  script/release.sh \
-  script/signify_prehash.sh
+  script/release.sh
 
 INTERNAL_OTATOOLS_RELEASETOOLS := \
   $(shell find build/make/tools/releasetools -name "*.pyc" -prune -o \
