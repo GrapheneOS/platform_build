@@ -26,7 +26,6 @@ PRODUCT_PACKAGES += \
     Launcher3QuickStep \
     Provision \
     Settings \
-    SetupWizard \
     StorageManager \
     SystemUI \
     WallpaperCropper \
