@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
     Gallery2 \
     LatinIME \
     Music \
-    PdfViewer \
+    PdfViewerGOS \
     preinstalled-packages-platform-handheld-product.xml \
     SettingsIntelligence \
     ThemePicker \
