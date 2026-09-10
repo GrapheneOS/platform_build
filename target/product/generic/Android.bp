@@ -849,16 +849,19 @@ system_image_defaults {
                 "ExtShared", // base_system
                 "ExternalStorageProvider", // handheld_system
                 "FusedLocation", // handheld_system
+                "GmsCompat", // handheld_system
                 "HTMLViewer", // media_system
                 "InputDevices", // handheld_system
                 "IntentResolver", // base_system
                 "KeyChain", // handheld_system
                 "LiveWallpapersPicker", // generic_system, full_base
                 "LocalTransport", // base_system
+                "LogViewer", // handheld_system
                 "ManagedProvisioning", // handheld_system
                 "MmsService", // handheld_system
                 "MtpService", // handheld_system
                 "MusicFX", // handheld_system
+                "NetworkLocation", // handheld_system
                 "NetworkStack", // base_system
                 "ONS", // telephony_system
                 "PacProcessor", // handheld_system
@@ -868,6 +871,7 @@ system_image_defaults {
                 "PrintSpooler", // handheld_system
                 "PrivateSpace", // handheld_system
                 "ProxyHandler", // handheld_system
+                "Seedvault", // media_system
                 "SettingsProvider", // base_system
                 "SharedStorageBackup", // handheld_system
                 "Shell", // base_system
@@ -923,7 +927,12 @@ system_image_defaults {
                 "telephony-common", // libs from TeleService
                 "voip-common", // base_system
                 "wificond_compat_symlink_module", // base_system
-            ] + select(release_flag("RELEASE_NATIVE_OMAPI"), {
+            ] + select(product_variable("debuggable"), {
+                true: [
+                    "HardeningTestApp", // base_system
+                ],
+                default: [],
+            }) + select(release_flag("RELEASE_NATIVE_OMAPI"), {
                 true: [],
                 default: [
                     "SecureElement", // handheld_system
