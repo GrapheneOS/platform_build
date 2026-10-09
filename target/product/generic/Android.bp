@@ -433,6 +433,7 @@ android_filesystem_defaults {
         ///////////////////////////////////////////
 
         // Base modules and settings for the product partition.
+        "bootanimation_zip",
         "build_flag_product",
         "fs_config_dirs_product",
         "fs_config_files_product",
