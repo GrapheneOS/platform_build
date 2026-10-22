@@ -930,7 +930,13 @@ system_image_defaults {
                 "telephony-common", // libs from TeleService
                 "voip-common", // base_system
                 "wificond_compat_symlink_module", // base_system
-            ] + select(release_flag("RELEASE_NATIVE_OMAPI"), {
+            ] + select(product_variable("debuggable"), {
+                true: [
+                    "HardeningTestApp", // base_system
+                    "SecurePasteTestSystemApp", // base_system
+                ],
+                default: [],
+            }) + select(release_flag("RELEASE_NATIVE_OMAPI"), {
                 true: [],
                 default: [
                     "SecureElement", // handheld_system
